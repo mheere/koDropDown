@@ -1,0 +1,61 @@
+﻿
+.my-dd-single-element {
+    background-color: rgb(234, 233, 235);
+    width: 120px;
+    border: 2px solid darkgray;
+    cursor: pointer;
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.dd-box-container {
+    background-color: rgb(247, 247, 247);
+    width: 630px;
+}
+
+    .dd-box-container .row1 {
+        background-color: rgb(227, 230, 186);
+        padding: 5px;
+        color: darkblue;
+        border-style: solid;
+        border-color: rgb(133, 133, 131);
+        border-width: 1px 1px 0 1px;
+    }
+
+.dd-box-container .row2 {
+    padding: 5px;
+    border: 1px solid rgb(133, 133, 131);
+}
+
+.bs-dd-main {
+    border: 1px inset darkblue;
+    padding: 5px;
+    width: 240px;
+}
+.bs-dd-basket {
+    width: 100%;
+    padding: 5px;
+}
+.bs-basket-item {
+    width: 140px;
+    border: 1px solid lightgrey;
+    padding: 5px;
+    margin: 2px 0 2px 0;
+}
+
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.pre13 {
+    font-size: 13px !important;
+    margin: 0 !important;
+}
+
+.col-padding-lr {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}

@@ -1,0 +1,158 @@
+﻿
+<div style="margin: 5px;">
+
+    <div class="container-fluid dd-box-container">
+
+        <div class="row row1">
+            <div class="col-xs-3 col-padding-lr">
+                <div class="center-block">Basic</div>
+            </div>
+            <div class="col-xs-9 col-padding-lr">
+                Array of strings.
+            </div>
+        </div>
+
+        <div class="row row2">
+            <div class="col-xs-3 col-padding-lr">
+                <div class="my-dd-sample-1 my-dd-single-element">​Click me</div>
+            </div>
+            <div class="col-xs-9 col-padding-lr">
+<pre class="pre13">
+// now create our drop down  - default actions
+$('.my-dd-sample-1').kodropdown({
+    data: ["Option 1", "Second Option", "Third Option"],
+    selectedItem: function (item) { alert(item.code); }
+});</pre>
+            </div>
+        </div>
+
+    </div>
+
+    <br />
+
+    <div class="container-fluid dd-box-container">
+
+        <div class="row row1">
+            <div class="col-xs-3 col-padding-lr">
+                <div class="center-block">Default</div>
+            </div>
+            <div class="col-xs-9 col-padding-lr">
+                Array of ActionItems.
+            </div>
+        </div>
+
+        <div class="row row2">
+            <div class="col-xs-3 col-padding-lr">
+                <div class="my-dd-sample-2 my-dd-single-element">​Click me</div>
+            </div>
+            <div class="col-xs-9 col-padding-lr">
+                <pre class="pre13">
+// now create our drop down  - default actions
+$('.my-dd-sample-2').kodropdown({
+    data: model.getActions,
+    selectedItem: model.getOption,
+    contextCurrent: model
+  
+});</pre>
+            </div>
+        </div>
+
+    </div>
+
+    <br />
+
+    <div class="container-fluid dd-box-container">
+
+        <div class="row row1">
+            <div class="col-xs-3 col-padding-lr">
+                <div class="center-block">List - single select</div>
+            </div>
+            <div class="col-xs-9 col-padding-lr">
+                Array of OptionItems - only a single one can be selected.
+            </div>
+        </div>
+
+        <div class="row row2">
+            <div class="col-xs-3 col-padding-lr">
+                <div class="my-dd-sample-3 my-dd-single-element">​Click me</div>
+            </div>
+            <div class="col-xs-9 col-padding-lr">
+                <pre class="pre13">
+// now create our drop down - single selected
+$('.my-dd-sample-3').kodropdown({
+    data: model.getOptions,
+    selectedItem: model.getSelected,
+    contextCurrent: model,
+    allowReordering: true
+});</pre>
+            </div>
+        </div>
+
+    </div>
+
+    <br />
+
+    <div class="container-fluid dd-box-container">
+
+        <div class="row row1">
+            <div class="col-xs-3 col-padding-lr">
+                <div class="center-block">List - multi select</div>
+            </div>
+            <div class="col-xs-9 col-padding-lr">
+                Array of OptionItems - many items can be selected.
+            </div>
+        </div>
+
+        <div class="row row2">
+            <div class="col-xs-3 col-padding-lr">
+                <div class="my-dd-sample-4 my-dd-single-element">​Click me</div>
+            </div>
+            <div class="col-xs-9 col-padding-lr">
+                <pre class="pre13">
+// now create our drop down - multi selected
+$('.my-dd-sample-4').kodropdown({
+    data: model.getList,
+    selectedItem: model.chosenList,
+    contextCurrent: model,
+    selection: "MultiSelect",
+    closeOnSelectionMade: false,
+                    useOwnTemplates: false
+});</pre>
+            </div>
+        </div>
+
+    </div>
+
+    <br />
+
+    <div class="container-fluid dd-box-container">
+
+        <div class="row row1">
+            <div class="col-xs-3 col-padding-lr">
+                <div class="center-block">Mixed</div>
+            </div>
+            <div class="col-xs-9 col-padding-lr">
+                Both Action and Option arrays are given and shown.
+            </div>
+        </div>
+
+        <div class="row row2">
+            <div class="col-xs-3 col-padding-lr">
+                <div class="my-dd-sample-5 my-dd-single-element"><span data-bind="text: mixedOption"></span></div>
+            </div>
+            <div class="col-xs-9 col-padding-lr">
+                <pre class="pre13">
+// now create our drop down - mixed
+$('.my-dd-sample-5').kodropdown({
+    data: model.getMixedOptions,
+    data2: model.getMixedActions,
+    selectedItem: model.chosenMixed,
+    contextCurrent: model,
+    closeOnSelectionMade: false
+});</pre>
+            </div>
+        </div>
+
+    </div>
+
+</div>

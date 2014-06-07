@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>BlueSky DropDown widget</title>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <link href="css/bs-dropdown.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script src="js/bs-dropdown.js"></script>
+    <script src="js/bs-dd-data.js"></script>
+    <script src="js/bs-dd-ko-custombinders.js"></script>
+
+    <!--THESE TEMPLATES NEED TO BE PRE-LOADED IN YOUR PROJECT - *** ONLY *** if the option useOwnTemplates is set to false!!-->
+    <script type="text/html" id="ddTmplStandard">
+        <div class='popdownClickHandler' data-bind='foreach: actionItems'>
+            <div class='dditem'>
+                <span class="dditemtext" data-bind='text: name'></span>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="ddTmplSelectedItems">
+        <div class='popdownClickHandler' data-bind='foreach: optionItems'>
+            <div class='dditem'>
+                <span class="selected"><i class="fa fa-check" data-bind="visible: isSelected"></i></span>
+                <span class="dditemtext" data-bind='text: name'></span>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="ddTmplMixedItems">
+        <div class='popdownClickHandler' data-bind='foreach: optionItems'>
+            <div class='dditem'>
+                <span class="selected"><i class="fa fa-check" data-bind="visible: isSelected"></i></span>
+                <span class="dditemtext" data-bind='text: name'></span>
+            </div>
+        </div>
+        <div class="ddseperator"></div>
+        <div class='popdownClickHandler' data-bind='foreach: actionItems'>
+            <div class='dditem'>
+                <span class="dditemtext" data-bind='text: name'></span>
+            </div>
+        </div>
+    </script>
+
+    <hr />
+
+    <div id="my-dd-template-taster"></div>
+
+    <hr />
+
+    The following is an example of how dropdows are created on DOM elements that are created dynamically, in this case by a Knockout foreach statement:
+
+    <div id="my-dd-template-dynamic" ></div>
+
+    <hr />
+
+    <script src="js/bs-dropdown-entry.js"></script>
+
+</body>
+
+</html>

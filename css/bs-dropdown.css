@@ -1,0 +1,60 @@
+﻿
+.bsDropDown {
+    z-index: 1000;
+    position: fixed;         /*fixed*/
+    display: block;
+    min-width: 50px; 
+    max-width: 300px; 
+    height: auto; 
+    max-height: 200px;
+    border: 2px solid #B8C7B4;
+    background-color: rgba(92, 92, 90, 1);
+    color: #ffffff;
+    border-radius: 1px;
+    visibility:visible;
+    overflow-x:hidden;
+    overflow-y: auto;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+}
+
+    /*.bsDropDown .content {
+        overflow-x:hidden;
+        font-size: 14px;
+        font-weight: normal;
+    }*/
+
+.bsDropDown .dditem {
+    padding: 4px 21px 4px 10px;
+    white-space: nowrap;
+    cursor: pointer
+}
+
+.bsDropDown .dditem .dditemtext {
+    margin-left: 5px;
+}
+
+.bsDropDown .dditem .selected {
+    width: 12px;
+    display: inline-block;
+}
+
+.bsDropDown .dditem:first-child {
+    padding-top: 6px;
+}
+
+.bsDropDown .dditem:last-child {
+    padding-bottom: 6px;
+}
+
+.bsDropDown .dditem:hover {
+    background-color: #5C814E; 
+    color: yellow;
+}
+
+.bsDropDown .ddseperator {
+    width: 100%; 
+    border-top: 1px solid rgb(172, 172, 179)
+}

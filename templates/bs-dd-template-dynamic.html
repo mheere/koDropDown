@@ -1,0 +1,16 @@
+﻿
+<div class="bs-dd-main" >
+    <input type="text" data-bind="value: newItemText" />
+    <button data-bind='click:add'>Add</button>
+
+    <div class="bs-dd-basket">
+        <div data-bind='foreach: items'>
+            <div class="bs-basket-item">
+                <span data-bind="text: name"></span>
+                <span class="pull-right">
+                    <span class="pb-caret" data-bind="koDropDown: $data, declarativeOptions: $parent.getDynamicOptions "><i class="fa fa-caret-down"></i></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
