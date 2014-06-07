@@ -18,18 +18,18 @@ The widget chooses the correct template to display the retrieved data items.
 The widget is geared up to work closely with your underlying viewmodel(s).  The option hooks for submitting and retrieving data all are controlled by the model.
 
 ### 4. Support for declarative binding ###
-By using the supplied custom binding we are able to declaratively connect instances of this plugin with DOM elements that are created a later point, (i.e. as part of a Knockout foreach loop).  
+By using the supplied custom binding we are able to declaratively connect instances of this plugin with DOM elements that are created at a later point, (i.e. as part of a Knockout foreach loop).  
 
 
 ## Workings ##
 The plugin currently supports two types of items; **ActionItems** and **OptionItems**.
 
-**_Action_** items are simple js objects with a *code* and *name* property. When they are returned as the model the popup looks a bit like this:
+**_ActionItems_** are simple js objects with a *code* and *name* property. When they are returned as the model the dropdown could look like this:
 
 ![](http://www.blueskycode.com/images/ddActionItem.png) 
 
 
-**_OptionItems_** is an ActionItem with one more property; the *isSelected* property indicating (surprise surprise) whether or not this item is selected (!) - see below.  A mixture of Action and Option items can also be returned which will be shown as a merged popup which can be very useful at times! 
+**_OptionItems_** are ActionItems with an additional property; the *isSelected* property indicating (surprise surprise) whether or not the item is selected (!) - see below.  A mixture of Action and Option items can also be returned which will be shown as a merged popup which can be very useful at times! 
 
 ![](http://www.blueskycode.com/images/ddOptionItems.png)
 
@@ -40,10 +40,10 @@ The widget can also be used ***declaratively*** which offers great benefits when
 
 
 ## Working examples ##
-Working examples can be found be opening the TestPage.html or by visiting [www.blueskycode.com](http://www.blueskycode.com/dropdown).
+Working examples can be found by opening the TestPage.html or visiting [www.blueskycode.com](http://www.blueskycode.com/dropdown).
 
 ## Pre-requisites ##
-One of the most useful libraries (apart from jQuery) I have come across has to be Knockout which I use in this widget in a variety of places from creating the templates to binding to the given data collection.
+One of the most useful libraries (apart from jQuery) I have come across has to be [Knockout.js](http://knockoutjs.com/documentation/introduction.html "Knockout documentation") which I use in this widget in a variety of places from creating the templates to binding to the given data collection.
 Therefore these libraries are relied upon and need to be referenced in your project.
 
 ## Usage ##
@@ -54,7 +54,7 @@ The easiest way to get the dropdown to work would be to submit it an array of st
     	selectedItem: function (item) { alert(item.code); }
     });
 
-A more generic approach would be to callback to the model requesting for the items by setting the 'data' option to a function in your model.  When a selection is made this is passed back to a function (in this case the chosenOption function on our model) that will handle any further action.  
+A more generic approach would be to callback to the model requesting for the items by setting the 'data' option to a function in your model.  When a selection is made this is passed back to a function (in this case the chosenOption function on our model) that will handle any further action. The current model is routinely passed on ensuring that when the user handles a selected item it is also given the model back as its context.     
 
     $('.my-dd-sample-2').kodropdown({
 	    data: model.getActions,
@@ -86,14 +86,14 @@ A function that is called when a selection is made. The selected item is handed 
 ##Options (optional)##
 
 ####data2####
-A function that is called when a mixed dropdown is needed. If a callback is given it will expect items to be returned (if *data* returns *OptionItems* then *data2* should return *ActionItems* or vice versa!)
+A function that is called when a mixed dropdown is needed. If a data2 callback is given it will expect items to be returned (if *data* returns *OptionItems* then *data2* should return *ActionItems* or vice versa!)
 
 ####offsetElement####
 The jQuery element that instigates the dropdown.  By default this is the dom element the widget was created on. 
 
 ####closeOnSelectionMade  (true)####
 Since the default is true the popup is closed after a selection is made. To prevent this set it to false.  You now are responsible for closing the widget either by calling the 'close' method on the widget or returning 'true' from the 'selectedItem' callback or simply clicking outside the popup!
-The mixed example shows a good use of this by disabling closing on selection so when 'OptionItems' are selected specific logic can be applied leaving the dropdown open. Then when an 'ActionItem' is selected it returns 'true' thus closing the dropdown.   
+The mixed example shows a good use of this by disabling closing on selection so when 'OptionItems' are selected specific logic can be applied leaving the dropdown open. Then when an 'ActionItem' is selected it returns 'true' thereby closing the dropdown.   
 
 ####position####
 There are four positions that can be given: RightDown, LeftDown (default), RightTop and LeftTop.
@@ -116,7 +116,7 @@ If this is set to true the drop down will open as soon as it is attached to the 
 The default is **'SingleSelect'** which *unselects* other dropdown items ensuring that only a single item can be selected.  When set to '**MultiSelect**' it will allow multiple items to be selected.
 
 ####useOwnTemplates####
-By default this is 'true' ensuring that the widget will use its own string based templates.  If you wish to submit your own templates then set this to 'false' and ensure they are pre-loaded.  The widget will scan for templateid's: 'ddTmplStandard', 'ddTmplSelectedItems' and 'ddTmplMixedItems'.  The TestPage.html has these defined (even though they are not used since all samples use the internal defined templates).  If however you set this option to 'false' it would use these!!
+The default is 'true' ensuring that the widget will use its own string based templates.  If you wish to submit your own templates then set this to 'false' and ensure your templates are pre-loaded.  The widget will then scan for the following templateid's: 'ddTmplStandard', 'ddTmplSelectedItems' and 'ddTmplMixedItems'.  The TestPage.html has these defined (even though they are not used since all samples use the internal defined templates).  If however you set this option to 'false' it would use these!!
 
 
 ## Declarative binding to DOM elements ##
@@ -131,7 +131,7 @@ The actual custom knockout binding is defined as such:
 		    
 		    // ------------------------------------------------
 		    // create a default object which will be given to the drop down widget - NOTE, these options CAN
-		    // still be overriden by the returned settings from the above call to 'mdpOptions'
+		    // still be overriden by the returned settings from the above call to 'declarativeOptions'
 		    // ------------------------------------------------
 		    var defaults = {
 			    contextCurrent: valueUnwrapped,
@@ -157,7 +157,7 @@ Then we call upon this custom binding declaratively as such:
 	    <div class="bs-basket-item">
 		    <span data-bind="text: name"></span>
 		    <span class="pull-right">
-			    <span class="pb-caret" data-bind="koDropDown: $data, declerativeOptions: $parent.getDynamicOptions ">
+			    <span class="pb-caret" data-bind="koDropDown: $data, declarativeOptions: $parent.getDynamicOptions ">
 			    	<i class="fa fa-caret-down"></i>
 		    	</span>
 		    </span>
@@ -167,13 +167,14 @@ Then we call upon this custom binding declaratively as such:
 
 Note the callback to the $parent.getDynamicOptions which should return a valid options object that can directly be passed on to the plugin.  It will merge with the plugin's own default settings overriding any options that are specified here.
 
-    // Called by the custom knockout binding (bsPopUp) when the element is bound and rendered.  All it does it to provide
-    // a proper bsdropdown settings object that is given to the drop down widget.  These settings override any default. 
+    // Called by the custom knockout binding (koPopUp) when the element is bound and rendered.  All it does 
+    // is to provide a proper koDropDown settings object that is given to the dropdown widget.
+	// These settings override any default. 
     MyBasket.prototype.getDynamicOptions = function (item, context) {
     
 	    return {
-		    // This is called upon when user clicks the drop down glyph - it is given the current item and the context in which it lives.
-		    // It should return an array with context relevant option items.
+		    // This is called upon when user clicks the drop down glyph - it is given the current item and the 
+		    // context in which it lives. It should return an array with context relevant option items.
 		    data: function (item, context) {
 		    
 			    var actions = Array();
@@ -184,7 +185,7 @@ Note the callback to the $parent.getDynamicOptions which should return a valid o
 		    
 		    },
 		    
-		    // Called by the custom binding (bsPopUp) when a drop down item is selected. It submits the item (the drop down
+		    // Called by the custom binding (koPopUp) when a drop down item is selected. It submits the item (the drop down
 		    // item that was clicked), the contextCurrent (the originating item from which it was clicked) and the 
 		    // contextRoot (the entire model).
 		    selectedItem: function (item, contextCurrent, contextRoot) {
@@ -194,7 +195,7 @@ Note the callback to the $parent.getDynamicOptions which should return a valid o
 			    
 			    // take appropriate action
 			    if (item.code == "remove")
-			    contextRoot.items.remove(contextCurrent);
+			    	contextRoot.items.remove(contextCurrent);
 		    },
 		    
 		    position: "LeftDown",   // drop down from the left of the item downwards
@@ -204,9 +205,8 @@ Note the callback to the $parent.getDynamicOptions which should return a valid o
     }
 
 ## Invitation ##
-Nothing is perfect and nor will this widget be :)
 
-If you use this widget and feel you have something to contribute then please fork this code, make your enhancements and become a contributor to this project!
+If you use this dropdown widget and feel you have something to contribute then please fork this code, make your enhancements and become a contributor to this project!
 
 Many thanks
 
