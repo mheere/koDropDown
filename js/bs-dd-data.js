@@ -14,7 +14,7 @@ function MyBasket()
     this.itemsOptions.push(new OptionItem("codeA", "Dishwashing", true));   // selected item
     this.itemsOptions.push(new OptionItem("codeB", "Laundry", false));
     this.itemsOptions.push(new OptionItem("codeC", "Food shopping", false));
-    this.itemsOptions.push(new OptionItem("codeD", "Hovering", false));
+    this.itemsOptions.push(new OptionItem("codeD", "Clean Windows", false));
     this.itemsOptions.push(new OptionItem("codeE", "Cooking", false));
     this.itemsOptions.push(new OptionItem("codeF", "Dusting", false));
 
@@ -23,7 +23,7 @@ function MyBasket()
     this.itemsList.push(new OptionItem("codeA", "Dishwashing", true));      // selected item
     this.itemsList.push(new OptionItem("codeB", "Laundry", false));
     this.itemsList.push(new OptionItem("codeC", "Food shopping", false));
-    this.itemsList.push(new OptionItem("codeD", "Hovering", true));         // selected item
+    this.itemsList.push(new OptionItem("codeD", "Clean Windows", true));         // selected item
     this.itemsList.push(new OptionItem("codeE", "Cooking", false));
     this.itemsList.push(new OptionItem("codeF", "Dusting", false));
     this.chosenListItems = Array();
