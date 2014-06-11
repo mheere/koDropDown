@@ -31,7 +31,7 @@ The plugin currently supports two types of items; **ActionItems** and **OptionIt
 
 **_OptionItems_** are ActionItems with an additional property; the *isSelected* property indicating (surprise surprise) whether or not the item is selected (!) - see below.  A mixture of Action and Option items can also be returned which will be shown as a merged popup which can be very useful at times! 
 
-![](http://www.blueskycode.com/images/ddOptionItems.png)
+![](http://www.blueskycode.com/images/ddOptionItems1.png)
 
 The widget can also be used ***declaratively*** which offers great benefits when you need dropdowns in items that are part of dynamic lists (like knockout's foreach loop).
 
@@ -98,7 +98,7 @@ The mixed example shows a good use of this by disabling closing on selection so 
 ####position####
 There are four positions that can be given: RightDown, LeftDown (default), RightTop and LeftTop.
  
-![](http://www.blueskycode.com/images/ddPositions.png)
+![](http://www.blueskycode.com/images/ddPositions1.png)
 
 ####allowReordering####
 The user is able to re-order the list of items that is shown in the dropdown. 
